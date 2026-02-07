@@ -4,3 +4,6 @@ ingressRoute:
 logs:
   general:
     level: "TRACE"
+ports:
+  web:
+    nodePort: 30080
