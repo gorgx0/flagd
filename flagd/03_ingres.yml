@@ -1,0 +1,20 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: flagd-ingress
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`flagd.localhost`)
+      kind: Rule
+      services:
+        - name: flagd
+          port: 8014
+    - match: Host(`grpc.flagd.localhost`)
+      kind: Rule
+      services:
+        - name: flagd
+          port: 8013
+          scheme: h2c

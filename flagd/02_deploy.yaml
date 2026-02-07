@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: flagd
-          image: ghcr.io/open-feature/flagd:v0.4.2 
+          image: ghcr.io/open-feature/flagd:v0.13.2 
           ports:
             - containerPort: 8013 # gRPC port
             - containerPort: 8014 # HTTP port (OFREP)
@@ -26,6 +26,12 @@ spec:
             - --uri
             - file:/etc/flagd/flags.json
             - --debug
+            - -g 
+            - "8013"
+            - -p
+            - "8014"
+            - -m
+            - "8018"
           resources:
             requests:
               memory: "64Mi"
