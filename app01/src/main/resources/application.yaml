@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: sb01
+gg:
+  jte:
+    development-mode: true
