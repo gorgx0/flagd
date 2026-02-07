@@ -26,6 +26,13 @@ spec:
             - --uri
             - file:/etc/flagd/flags.json
             - --debug
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
           volumeMounts:
             - name: flagd-config-volume
               mountPath: /etc/flagd
