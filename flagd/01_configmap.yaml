@@ -15,7 +15,7 @@ data:
             "on": true,
             "off": false
           },
-          "defaultVariant": "off"
+          "defaultVariant": "on"
         },
         "another-feature": {
           "state": "ENABLED",
