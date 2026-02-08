@@ -19,19 +19,18 @@ spec:
         - name: flagd
           image: ghcr.io/open-feature/flagd:v0.13.2 
           ports:
-            - containerPort: 8013 # gRPC port
-            - containerPort: 8014 # HTTP port (OFREP)
+            - containerPort: 8015 # gRPC port
+            - containerPort: 8013 # HTTP port (OFREP)
           args:
             - start
+            - -x
             - --uri
             - file:/etc/flagd/flags.json
             - --debug
             - -g 
-            - "8013"
+            - "8015"
             - -p
-            - "8014"
-            - -m
-            - "8018"
+            - "8013"
           resources:
             requests:
               memory: "64Mi"
@@ -59,10 +58,10 @@ spec:
   ports:
     - name: grpc
       protocol: TCP
-      port: 8013
-      targetPort: 8013
+      port: 8015
+      targetPort: 8015
     - name: http
       protocol: TCP
-      port: 8014
-      targetPort: 8014
+      port: 8013
+      targetPort: 8013
   type: ClusterIP # Use LoadBalancer for external access if needed

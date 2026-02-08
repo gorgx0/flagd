@@ -7,14 +7,14 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`flagd.localhost`)
-      kind: Rule
-      services:
-        - name: flagd
-          port: 8014
-    - match: Host(`grpc.flagd.localhost`)
+    - match: Host(`ofrep.flagd.localhost`)
       kind: Rule
       services:
         - name: flagd
           port: 8013
+    - match: Host(`grpc.flagd.localhost`)
+      kind: Rule
+      services:
+        - name: flagd
+          port: 8015
           scheme: h2c

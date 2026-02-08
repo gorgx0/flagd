@@ -49,3 +49,4 @@ cd demoApp
 mvn clean spring-boot:run
 ```
 
+open demo page at http://localhost:8080
