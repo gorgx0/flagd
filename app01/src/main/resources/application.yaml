@@ -4,8 +4,9 @@ spring:
 gg:
   jte:
     use-precompiled-templates: true
+
 openfeature:
   flagd:
-    host: flagd.localhost
-    port: 30080
+    host: localhost
+    port: 8013
     resolver-type: RPC
