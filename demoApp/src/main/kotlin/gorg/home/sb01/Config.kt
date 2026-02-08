@@ -30,6 +30,6 @@ class Config {
                 .resolverType(Config.Resolver.valueOf(resolverType))
                 .build()
         ))
-        return api.getClient()
+        return api.client
     }
 }

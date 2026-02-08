@@ -31,4 +31,11 @@ install ingress
 kubectl apply -f flagd/03_ingress.yaml
 ```
 
+## local 
+
+start flagd locally
+```bash
+flagd start -f file:./flagd/flags_2.json -x
+```
+
 
