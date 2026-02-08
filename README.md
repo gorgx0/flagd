@@ -49,3 +49,23 @@ mvn -f demoApp/pom.xml  clean spring-boot:run
 ```
 
 open demo page at http://localhost:8080
+
+## k8s
+
+set minikube docker env
+```shell
+eval $(minikube docker-env)
+```
+
+create app image
+```shell
+docker build -t flagd-demo-app:0.0.1 demoApp/.
+```
+
+deploy app to k8s
+```shell
+kubectl apply -f demoApp/02_deploy.yaml
+```
+
+open demo page at http://localhost:30088
+

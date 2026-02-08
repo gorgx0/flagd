@@ -3,13 +3,13 @@ spring:
     name: flagd-demo-app
 gg:
   jte:
-#    use-precompiled-templates: true
+    use-precompiled-templates: true
 #    development-mode: true
 
 openfeature:
   flagd:
     config-type: IN_PROCESS # IN_PROCESS/RPC
-    host: localhost
+    host: flagd
     rpc:
       port: 8013
     in-process:

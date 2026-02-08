@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flagd-demo-app
+  labels:
+    app: flagd-demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flagd-demo-app
+  template:
+    metadata:
+      labels:
+        app: flagd-demo-app
+    spec:
+      containers:
+        - name: flagd-demo-app
+          image: flagd-demo-app:0.0.1
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flagd-demo-service
+  labels:
+    app: flagd-demo-app
+spec:
+  selector:
+    app: flagd-demo-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      nodePort: 30088
+  type: LoadBalancer
