@@ -1,4 +1,4 @@
-@param String title = "Welcome"
+@param String title = "Flagd demo"
 @param dev.openfeature.sdk.Client client
 
 <!DOCTYPE html>
