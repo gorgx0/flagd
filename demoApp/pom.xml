@@ -8,11 +8,11 @@
 		<version>4.0.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>gorg.home</groupId>
-	<artifactId>sb01</artifactId>
+	<groupId>gorg.home.flagd</groupId>
+	<artifactId>demo-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sb01</name>
-	<description>spring boot 4.0 demo app</description>
+	<name>demo-app</name>
+	<description>flagd/spring boot 4.0 demo app</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -34,7 +34,7 @@
 		<dependency>
 			<groupId>dev.openfeature.contrib.providers</groupId>
 			<artifactId>flagd</artifactId>
-			<version>0.11.10</version>
+			<version>0.11.19</version>
 		</dependency>
 		<dependency>
 			<groupId>dev.openfeature</groupId>
@@ -133,3 +133,4 @@
 	</build>
 
 </project>
+	

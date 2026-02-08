@@ -11,7 +11,7 @@
         "active": true,
         "inactive": false
       },
-      "defaultVariant": "inactive"
+      "defaultVariant": "active"
     },
     "welcomeMessage": {
       "state": "ENABLED",

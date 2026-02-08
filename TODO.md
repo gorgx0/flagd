@@ -1,3 +1,4 @@
 - change app01/sb01 to demoApp
 - finish README.md
-- create spring boot profiles for local and k8s
+- create spring boot profiles for local,minikub and k8s
+- remove stdout printing of flag values in demo app
