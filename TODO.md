@@ -1,0 +1,3 @@
+- change app01/sb01 to demoApp
+- finish README.md
+- create spring boot profiles for local and k8s

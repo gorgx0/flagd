@@ -1,0 +1,34 @@
+# flagd demo README.md
+
+## steps
+
+1. start minikube
+```bash
+minikube start
+```
+
+2. install traefik
+```bash
+helm install traefik traefik/traefik -f traefik/custom-values.yaml
+```
+> **Note:** check custom-values.yaml for the tcp port treafik web is exposed on minikube (it defaults to 30080)
+
+3. install flagd
+
+create configmap for flagd
+```bash
+kubectl create configmap --from-file=flags.json=flagd/flags_2.json flagd-config
+```
+
+install flagd
+```bash
+kubectl apply -f flagd/02_deploy.yaml
+```
+
+
+install ingress
+```bash
+kubectl apply -f flagd/03_ingress.yaml
+```
+
+
