@@ -7,12 +7,12 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`ofrep.flagd.localhost`)
+    - match: Host(`ofrep.flagd.minikube`)
       kind: Rule
       services:
         - name: flagd
           port: 8013
-    - match: Host(`grpc.flagd.localhost`)
+    - match: Host(`grpc.flagd.minikube`)
       kind: Rule
       services:
         - name: flagd

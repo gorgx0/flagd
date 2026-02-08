@@ -9,8 +9,9 @@ gg:
 openfeature:
   flagd:
     config-type: IN_PROCESS # IN_PROCESS/RPC
-    host: localhost
     rpc:
+      host: localhost
       port: 8013
     in-process:
+      host: localhost
       port: 8015

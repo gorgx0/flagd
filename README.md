@@ -13,6 +13,12 @@ helm install traefik traefik/traefik -f traefik/custom-values.yaml
 ```
 > **Note:** check custom-values.yaml for the tcp port treafik web is exposed on minikube (it defaults to 30080)
 
+> **Note:** to open traefik dashoard 
+```shell
+kubectl port-forward deployments/traefik 8082:8080
+```
+> and open http://localhost:8082/dashboard/
+
 3. install flagd
 
 create configmap for flagd
@@ -69,3 +75,23 @@ kubectl apply -f demoApp/02_deploy.yaml
 
 open demo page at http://localhost:30088
 
+## local app with flagd in k8s
+
+make sure the /etc/hosts contain the minikube ip
+with the following names  
+```
+ofrep.flagd.minikube  
+grpc.flagd.minikube  
+```
+
+to obtain minikube ip
+```shell
+minikube ip
+```
+
+run demo app with _k8s-out_ profile
+```shell
+mvn -f demoApp/pom.xml clean spring-boot:run -Dspring-boot.run.profiles=k8s-out
+```
+
+open demo page at http://localhost:8080
