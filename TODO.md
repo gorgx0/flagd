@@ -2,3 +2,4 @@
 - finish README.md
 - create spring boot profiles for local,minikub and k8s
 - remove stdout printing of flag values in demo app
+- add logging flag evaluation details in demo app managed by a feature flag ;)
