@@ -12,7 +12,7 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">${title}</h1>
-        <p class="lead">Hello from JTE template!</p>
+        <p class="lead">This is feature-flags demo!</p>
         
         <div class="card mb-4">
             <div class="card-header">Simple Boolean Flag</div>

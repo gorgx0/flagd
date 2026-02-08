@@ -3,10 +3,14 @@ spring:
     name: sb01
 gg:
   jte:
-    use-precompiled-templates: true
+    #    use-precompiled-templates: true
+    development-mode: true
 
 openfeature:
   flagd:
+    config-type: IN_PROCESS # IN_PROCESS/RPC
     host: localhost
-    port: 8013
-    resolver-type: RPC
+    rpc:
+      port: 8013
+    in-process:
+      port: 8015

@@ -5,31 +5,45 @@ import dev.openfeature.contrib.providers.flagd.FlagdOptions
 import dev.openfeature.contrib.providers.flagd.FlagdProvider
 import dev.openfeature.sdk.Client
 import dev.openfeature.sdk.OpenFeatureAPI
-import org.springframework.beans.factory.annotation.Value
+import gorg.home.sb01.ConfigType.IN_PROCESS
+import gorg.home.sb01.ConfigType.RPC
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class Config {
-    @Value("\${openfeature.flagd.host:localhost}")
-    lateinit var host: String
-
-    @Value("\${openfeature.flagd.port:8013}")
-    var port: Int = 8013
-
-    @Value("\${openfeature.flagd.resolver-type:RPC}")
-    lateinit var resolverType: String
+class Config(
+    val flagdConfig: FlagdConfig
+) {
 
     @Bean
-    fun client(): Client? {
+    fun client(): Client {
         val api = OpenFeatureAPI.getInstance()
-        api.setProviderAndWait(FlagdProvider(
-            FlagdOptions.builder()
-                .host(host)
-                .port(port)
-                .resolverType(Config.Resolver.valueOf(resolverType))
-                .build()
-        ))
+        when (flagdConfig.configType) {
+            IN_PROCESS -> {
+                api.setProviderAndWait(
+                    FlagdProvider(
+                        FlagdOptions.builder()
+                            .host(flagdConfig.host)
+                            .port(flagdConfig.inProcess.port)
+                            .resolverType(Config.Resolver.IN_PROCESS)
+                            .build()
+                    )
+                )
+            }
+
+            RPC -> {
+                api.setProviderAndWait(
+                    FlagdProvider(
+                        FlagdOptions.builder()
+                            .host(flagdConfig.host)
+                            .port(flagdConfig.rpc.port)
+                            .resolverType(Config.Resolver.RPC)
+                            .build()
+                    )
+                )
+            }
+        }
+
         return api.client
     }
 }
