@@ -1,0 +1,139 @@
+{
+  "$schema": "https://flagd.dev/schema/v0/flags.json",
+  "metadata": {
+    "flagSetId": "comprehensive-examples",
+    "version": "v1.0.0"
+  },
+  "flags": {
+    "booleanFeatureToggle": {
+      "state": "ENABLED",
+      "variants": {
+        "active": true,
+        "inactive": false
+      },
+      "defaultVariant": "inactive"
+    },
+    "welcomeMessage": {
+      "state": "ENABLED",
+      "variants": {
+        "standard": "Hello, User!",
+        "premium": "Welcome Back, Premium User!",
+        "trial": "Start Your Free Trial!"
+      },
+      "defaultVariant": "standard",
+      "targeting": {
+        "if": [
+          { "==": [{ "var": "user_tier" }, "premium"] }, "premium",
+          { "==": [{ "var": "user_tier" }, "trial"] }, "trial",
+          "standard"
+        ]
+      }
+    },
+    "featureLimit": {
+      "state": "ENABLED",
+      "variants": {
+        "low": 5,
+        "medium": 10,
+        "high": 20
+      },
+      "defaultVariant": "medium",
+      "targeting": {
+        "if": [
+          { ">=": [{ "var": "purchase_count" }, 100] }, "high",
+          { ">=": [{ "var": "purchase_count" }, 50] }, "medium",
+          "low"
+        ]
+      }
+    },
+    "betaAccess": {
+      "state": "DISABLED",
+      "variants": {
+        "enabled": true,
+        "disabled": false
+      },
+      "defaultVariant": "disabled"
+    },
+    "newUILayout": {
+      "state": "ENABLED",
+      "variants": {
+        "control": "old-layout",
+        "treatment": "new-layout"
+      },
+      "defaultVariant": "control",
+      "targeting": {
+        "if": [
+          {
+            "and": [
+              { "==": [{ "var": "country" }, "US"] },
+              { "in": [{ "var": "user_id" }, ["user123", "user456"]] }
+            ]
+          },
+          "treatment",
+          "control"
+        ]
+      }
+    },
+    "promotionalBanner": {
+      "state": "ENABLED",
+      "variants": {
+        "none": "",
+        "sale": "Big Sale On Now!",
+        "new_arrivals": "Check Out Our New Arrivals!"
+      },
+      "defaultVariant": "none",
+      "targeting": {
+        "if": [
+          {
+            "fractional": [
+              { "var": "session_id" },
+              ["sale", 50],
+              ["new_arrivals", 50]
+            ]
+          },
+          "sale",
+          "none"
+        ]
+      }
+    },
+    "apiEndpoint": {
+      "state": "ENABLED",
+      "variants": {
+        "v1": "/api/v1",
+        "v2": "/api/v2"
+      },
+      "defaultVariant": "v1",
+      "targeting": {
+        "if": [
+          { "$ref": "internalUser" },
+          "v2",
+          "v1"
+        ]
+      }
+    },
+    "featureRolloutByRegion": {
+      "state": "ENABLED",
+      "variants": {
+        "enabled": true,
+        "disabled": false
+      },
+      "defaultVariant": "disabled",
+      "targeting": {
+        "if": [
+          {
+            "in": [
+              { "var": "region" },
+              ["US-EAST", "EU-WEST"]
+            ]
+          },
+          "enabled",
+          "disabled"
+        ]
+      }
+    }
+  },
+  "$evaluators": {
+    "internalUser": {
+      "ends_with": [{ "var": "email" }, "@mycompany.com"]
+    }
+  }
+}
