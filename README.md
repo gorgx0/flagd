@@ -80,8 +80,8 @@ open demo page at http://localhost:30088
 make sure the /etc/hosts contain the minikube ip
 with the following names  
 ```
-ofrep.flagd.minikube  
-grpc.flagd.minikube  
+resolve.flagd.minikube  
+sync.flagd.minikube  
 ```
 
 to obtain minikube ip

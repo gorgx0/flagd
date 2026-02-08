@@ -8,11 +8,11 @@ gg:
 
 openfeature:
   flagd:
+    deadline: 3000
     config-type: IN_PROCESS # IN_PROCESS/RPC
     rpc:
-      host: ofrep.flagd.minikube
+      host: resolve.flagd.minikube
       port: 30080
     in-process:
-      host: grpc.flagd.minikube
+      host: sync.flagd.minikube
       port: 30080
-    deadline: 3000

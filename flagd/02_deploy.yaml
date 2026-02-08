@@ -49,19 +49,31 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: flagd
+  name: flagd-resolve
   labels:
     app: flagd
 spec:
   selector:
     app: flagd
   ports:
-    - name: grpc
-      protocol: TCP
-      port: 8015
-      targetPort: 8015
-    - name: http
+    - name: resolve
       protocol: TCP
       port: 8013
       targetPort: 8013
+  type: ClusterIP # Use LoadBalancer for external access if needed
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flagd-sync
+  labels:
+    app: flagd
+spec:
+  selector:
+    app: flagd
+  ports:
+    - name: sync
+      protocol: TCP
+      port: 8015
+      targetPort: 8015
   type: ClusterIP # Use LoadBalancer for external access if needed

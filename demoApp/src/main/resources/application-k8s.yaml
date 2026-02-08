@@ -8,6 +8,7 @@ gg:
 
 openfeature:
   flagd:
+    deadline: 3000
     config-type: IN_PROCESS # IN_PROCESS/RPC
     rpc:
       host: flagd
@@ -15,4 +16,3 @@ openfeature:
     in-process:
       host: flagd
       port: 8015
-    deadline: 3000

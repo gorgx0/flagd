@@ -7,14 +7,14 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`ofrep.flagd.minikube`)
+    - match: Host(`resolve.flagd.minikube`)
       kind: Rule
       services:
-        - name: flagd
+        - name: flagd-resolve
           port: 8013
-    - match: Host(`grpc.flagd.minikube`)
+    - match: Host(`sync.flagd.minikube`)
       kind: Rule
       services:
-        - name: flagd
+        - name: flagd-sync
           port: 8015
           scheme: h2c
