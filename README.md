@@ -28,12 +28,11 @@ kubectl apply -f flagd/02_deploy.yaml
 ```
 
 
-install ingress
+create ingress route
 
 ```shell
 kubectl apply -f flagd/03_ingress.yaml
 ```
-
 ## local 
 
 start flagd locally
@@ -46,7 +45,7 @@ build and run demo app
 
 ```shell
 cd demoApp
-mvn clean spring-boot:run
+mvn -f demoApp/pom.xml  clean spring-boot:run
 ```
 
 open demo page at http://localhost:8080
