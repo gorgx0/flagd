@@ -1,7 +1,7 @@
 - [x] change app01/sb01 to demoApp
+- [x] optimize docker build by caching dependencies
+- [x] remove stdout printing of flag values in demo app
 - [ ] finish README.md
 - [ ] create spring boot profiles for local,minikube and k8s
-- [x] remove stdout printing of flag values in demo app
 - [ ] add logging flag evaluation details in demo app managed by a feature flag ;)
 - [ ] add logic for the case when flagd server is unavailable at start
-- [ ] optimize docker build by caching dependencies
