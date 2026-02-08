@@ -6,8 +6,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 data class FlagdConfig(
     val configType: ConfigType = ConfigType.IN_PROCESS,
     val rpc: RpcConfig,
-    val inProcess: InProcessConfig
-)
+    val inProcess: InProcessConfig,
+    val deadline: Int = 1000
+) {
+}
 
 enum class ConfigType {
     IN_PROCESS,

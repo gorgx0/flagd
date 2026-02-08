@@ -32,6 +32,7 @@ class Config(
                         FlagdOptions.builder()
                             .host(flagdConfig.inProcess.host)
                             .port(flagdConfig.inProcess.port)
+                            .deadline(flagdConfig.deadline)
                             .resolverType(Config.Resolver.IN_PROCESS)
                             .build()
                     )

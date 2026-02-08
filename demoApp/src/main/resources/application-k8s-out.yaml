@@ -15,3 +15,4 @@ openfeature:
     in-process:
       host: grpc.flagd.minikube
       port: 30080
+    deadline: 3000
