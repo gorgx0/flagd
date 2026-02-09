@@ -1,10 +1,9 @@
 spring:
   application:
     name: flagd-demo-app
-gg:
+
   jte:
-#    use-precompiled-templates: true
-#    development-mode: true
+    development-mode: true
 
 openfeature:
   flagd:
