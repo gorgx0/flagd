@@ -50,8 +50,8 @@ flagd start -f file:./flagd/flags_2.json -g 8015 -p 8013 -x
 build and run demo app
 
 ```shell
-cd demoApp
-mvn -f demoApp/pom.xml  clean spring-boot:run
+cd demo-app
+mvn -f demo-app/pom.xml  clean spring-boot:run
 ```
 
 open demo page at http://localhost:8080
@@ -65,12 +65,12 @@ eval $(minikube docker-env)
 
 create app image
 ```shell
-docker build -t flagd-demo-app:0.0.1 demoApp/.
+docker build -t flagd-demo-app:0.0.1 demo-app/.
 ```
 
 deploy app to k8s
 ```shell
-kubectl apply -f demoApp/k8s/01-deployment.yaml
+kubectl apply -f demo-app/k8s/01-deployment.yaml
 ```
 
 open demo page at http://192.168.112.2:30088/ (or check your minikube ip)
@@ -91,7 +91,7 @@ minikube ip
 
 run demo app with _k8s-out_ profile
 ```shell
-mvn -f demoApp/pom.xml clean spring-boot:run -Dspring-boot.run.profiles=k8s-out
+mvn -f demo-app/pom.xml clean spring-boot:run -Dspring-boot.run.profiles=k8s-out
 ```
 
 open demo page at http://localhost:8080

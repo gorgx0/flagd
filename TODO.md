@@ -1,4 +1,4 @@
-- [x] change app01/sb01 to demoApp
+- [x] change app01/sb01 to demo-app
 - [x] optimize docker build by caching dependencies
 - [x] remove stdout printing of flag values in demo app
 - [ ] finish README.md
