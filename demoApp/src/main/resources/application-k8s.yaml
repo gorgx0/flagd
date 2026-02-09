@@ -11,8 +11,8 @@ openfeature:
     deadline: 3000
     config-type: IN_PROCESS # IN_PROCESS/RPC
     rpc:
-      host: flagd
+      host: flagd-resolve
       port: 8013
     in-process:
-      host: flagd
+      host: flagd-sync
       port: 8015

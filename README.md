@@ -4,7 +4,7 @@
 
 1. start minikube
 ```bash
-minikube start
+minikube start --extra-config=kubelet.sync-frequency=10s
 ```
 
 2. install traefik
@@ -70,10 +70,10 @@ docker build -t flagd-demo-app:0.0.1 demoApp/.
 
 deploy app to k8s
 ```shell
-kubectl apply -f demoApp/02_deploy.yaml
+kubectl apply -f demoApp/k8s/01-deployment.yaml
 ```
 
-open demo page at http://localhost:30088
+open demo page at http://192.168.112.2:30088/ (or check your minikube ip)
 
 ## local app with flagd in k8s
 
